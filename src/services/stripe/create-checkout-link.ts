@@ -19,7 +19,7 @@ export async function createStripeCheckoutLink({
         mode: 'payment',
         line_items: [{
             price_data: {
-                unit_amount: amount,
+                unit_amount: amount * 100,
                 currency: 'eur',
                 product_data: {
                     name: productName,
