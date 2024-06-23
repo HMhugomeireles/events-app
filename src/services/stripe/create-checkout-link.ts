@@ -12,7 +12,7 @@ export async function createStripeCheckoutLink({
     productName,
     productDescription
 }: Props) {
-    const domain = process.env.HOSTING_URL ?? "http://localhost:3000";
+    const domain = process.env.NODE_ENV === 'development' ? "http://localhost:3000" : "https://events-app-olive-two.vercel.app/";
     const session = await stripe.checkout.sessions.create({
         success_url: `${domain}/event-detail/thank-you`,
         cancel_url: `${domain}/event-detail/buy-ticket`,
